@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer="";
+                //s의 길이를 2로 나누고 
+                //나머지가 0이면 나눈 수-1인덱스에 해당하는 el과 그 다음 el 리턴
+                //0이 아니면내림한 수의 인덱스에 해당하는 el을 리턴
+                let word = s.split('')
+                let mid = Math.floor(word.length/2)
+                if(word.length%2===0) {
+                    answer+=word[mid-1]
+                    answer+=word[mid];
+                }
+                else if(word.length%2===1) {
+                    answer+=word[mid];
+                }
+                return answer;
+            }
+            console.log(solution("good"));
+            console.log(solution("great"));
+        </script>
+    </body>
+</html>

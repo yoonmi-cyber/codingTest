@@ -1,4 +1,5 @@
-<html>
+//1번
+<!-- <html>
     <head>
         <meta charset="UTF-8">
         <title>출력결과</title>
@@ -7,7 +8,7 @@
         <script>
             function solution(s){
                 let answer="";
-                for(let x of s){
+                for(let x of s){//string도 가능하다!!
                     if(x==='A') answer+='#';
                     else answer+=x;
                 }
@@ -18,9 +19,31 @@
             console.log(solution(str));
         </script>
     </body>
-</html>
+</html> -->
 
+//2번
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer=s; -->
+                //8번문제에서는 arr.splice나 answer.splice가 같은 값을 리턴하였지만
+                //여기서는 s가 string이기 때문에 얕은 복사가 아닌 주소참조를 하고 있어
+                //꼭 answer.replace를 해줘야 한다.
+                answer=answer.replace(/A/g, "#");//정규표현식:전역으로 A를 찾아서 #으로 replace!
+                return answer;
+            }
+            let str="BANANA";
+            console.log(solution(str));
+        <!-- </script>
+    </body>
+</html> -->
 
+//3번
 <html>
     <head>
         <meta charset="UTF-8">
@@ -29,13 +52,19 @@
     <body>
         <script>
             function solution(s){
-                let answer=s;
-                answer=answer.replace(/A/g, "#");
+                let answer="";
+                const arr=s.split('');
+                console.log(arr)
+                for(let i=0; i<arr.length; i++) {
+                    if(arr[i]==='A') arr.splice(i, 1,'#')
+                }
+                answer=arr.join('').toString();
                 return answer;
             }
-            
             let str="BANANA";
             console.log(solution(str));
         </script>
     </body>
 </html>
+
+

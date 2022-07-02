@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer="";
+                for(let i=0; i<s.length; i++) {
+                    //해당 요소가 처음 나왔을 때의 인덱스
+                    //=>해당 요소가 처음 나왔는지 확인할 수 있다!
+                    if(s.indexOf(s[i])===i) answer+=s[i];
+                }
+                return answer;
+            }
+            console.log(solution("ksekkset"));
+        </script>
+    </body>
+</html>
