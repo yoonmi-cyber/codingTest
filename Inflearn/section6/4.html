@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer;
+                let stack=[];
+                for (let el of s) {
+                    debugger;
+                    if(typeof el === Number) stack.push(el);
+                    else {
+                        let temp1 = stack.pop();
+                        let temp2 = stack.pop();
+                        if(el==='+') stack.push(temp1+temp2);
+                        else if(el==='-') stack.push(temp2-temp1);
+                        else if (el==='*') stack.push(temp2*temp1);
+                        else if(el==='/') stack.push(temp2/temp1);
+                    }
+                }
+                return answer;
+            }
+
+            let str="352+*9-";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>

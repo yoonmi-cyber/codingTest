@@ -8,12 +8,14 @@
             function solution(s){  
                 let answer;
                 let stack=[];
-                for(let x of s){
-                    if(x===')'){
+                debugger;
+                for(let el of s){
+                    if(el===')'){
                         while(stack.pop()!=='(');
                     }
-                    else stack.push(x);
+                    else stack.push(el);
                 }
+                console.log(stack);
                 answer=stack.join('');
                 return answer;
             }

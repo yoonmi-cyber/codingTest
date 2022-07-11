@@ -8,8 +8,8 @@
             function solution(s){
                 let answer="YES";
                 stack=[];
-                for(let x of s){
-                    if(x==='(') stack.push(x);
+                for(let el of s){
+                    if(el==='(') stack.push(el);
                     else{
                         if(stack.length===0) return "NO";
                         stack.pop();
@@ -19,7 +19,7 @@
                 return answer;
             }
             
-            let a="(()(()))(()";
+            let a="(()(()))(())";
             console.log(solution(a));
         </script>
     </body>
