@@ -9,17 +9,22 @@
                 let answer;
                 let stack=[];
                 for (let el of s) {
-                    debugger;
-                    if(typeof el === Number) stack.push(el);
-                    else {
+                    //debugger;
+                    console.log(el)
+                    if(!isNaN(el)) { //이 경우엔 typeof가 아니라 숫자인지 알 수 있는 isNaN()을 사용해야한다!
+                        stack.push(Number(el));
+                        console.log(stack);
+                    } else {
                         let temp1 = stack.pop();
                         let temp2 = stack.pop();
-                        if(el==='+') stack.push(temp1+temp2);
+                        if(el==='+') stack.push(temp2+temp1);
                         else if(el==='-') stack.push(temp2-temp1);
                         else if (el==='*') stack.push(temp2*temp1);
                         else if(el==='/') stack.push(temp2/temp1);
                     }
                 }
+                console.log(stack)
+                answer=stack[0];
                 return answer;
             }
 
