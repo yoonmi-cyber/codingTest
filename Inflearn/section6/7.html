@@ -5,15 +5,17 @@
     </head>
     <body>
         <script>
+            //plan을 순서대로 돌면서 need에 있으면 필수과목! 
+            //need의 shift()값과 같으면 지우고 아니면 return NO
             function solution(need, plan){
                 let answer="YES";
-                let queue=need.split('');
-                for(let x of plan){
-                    if(queue.includes(x)){
-                        if(x!==queue.shift()) return "NO";
-                    }
+                let queue=Array.from(need);
+                for(let el of plan) {
+                    if(queue.includes(el)) {
+                        if(el !==queue.shift()) return "NO";
+                    }//여기서 shift()는 무조건 실행된다.
                 }
-                if(queue.length>0) return "NO";  
+                if(queue.length>0) return "NO"
                 return answer;
             }
 
