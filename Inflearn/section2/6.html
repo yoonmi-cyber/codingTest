@@ -6,23 +6,29 @@
     <body>
         <script>
             function solution(arr){  
-                let answer=Number.MIN_SAFE_INTEGER;
-                let n=arr.length;
-                let sum1=sum2=0;
-                for(let i=0; i<n; i++){
-                    sum1=sum2=0;
-                    for(let j=0; j<n; j++){
-                        sum1+=arr[i][j];
-                        sum2+=arr[j][i];
+                debugger;
+                let answer;
+                let sum=[];
+                //row&col
+                let row=col=0;
+                for(let i=0; i<arr.length; i++) {
+                    row=col=0;
+                    for(let j=0; j<arr.length; j++) {
+                        row+=arr[i][j]
+                        col+=arr[j][i]
                     }
-                    answer=Math.max(answer, sum1, sum2);
+                    sum.push(row);
+                    sum.push(col);
                 }
-                sum1=sum2=0;
-                for(let i=0; i<n; i++){
-                    sum1+=arr[i][i];
-                    sum2+=arr[i][n-i-1];
-                }  
-                answer=Math.max(answer, sum1, sum2); 
+                //cross1,cross2
+                let cross1=cross2=0;
+                for(let i=0; i<arr.length; i++) {
+                    cross1+=arr[i][i];
+                    cross2+=arr[i][arr.length-i-1];
+                    sum.push(cross1);
+                    sum.push(cross2);
+                }
+                answer=Math.max(...sum);
                 return answer;
             }
 

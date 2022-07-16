@@ -5,12 +5,14 @@
     </head>
     <body>
         <script>
-            function solution(arr){         
+            function solution(arr){  
+                //첫번째 학생을 max로 두고
+                //2번째 학생부터 max보다 크면 max에 할당하고 answer+1       
                 let answer=1, max=arr[0];
-                for(let i=1; i<arr.length; i++){
-                    if(arr[i]>max){
-                        answer++;
+                for(let i=1; i<arr.length; i++) {
+                    if(arr[i]>max) {
                         max=arr[i];
+                        answer++;
                     }
                 }
                 return answer;

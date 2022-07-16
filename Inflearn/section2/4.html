@@ -7,14 +7,13 @@
         <script>
             function solution(arr){         
                 let answer=0, cnt=0;
-                for(let x of arr){
-                    if(x===1){
+                for(let i=0; i<arr.length; i++) {
+                    if(arr[i]===1) {
                         cnt++;
-                        answer+=cnt;
-                    }
+                        answer=answer+cnt;
+                    } 
                     else cnt=0;
                 }
-                   
                 return answer;
             }
 

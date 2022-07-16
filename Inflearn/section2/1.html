@@ -7,9 +7,11 @@
         <script>
             function solution(arr){         
                 let answer=[];
-                answer.push(arr[0]);
-                for(let i=1; i<arr.length; i++){
-                    if(arr[i]>arr[i-1]) answer.push(arr[i]);
+                //arr를 인덱스 순서대로 확인하는데 
+                //앞의 수보다 크면 answer에 푸쉬
+                answer.push(arr[0]);//첫번째 요소는 비교대상이 없으므로 미리 넣어준다.
+                for(let i=1; i<arr.length; i++) {
+                    if(arr[i]>arr[i-1]) answer.push(arr[i])
                 }
                 return answer;
             }
