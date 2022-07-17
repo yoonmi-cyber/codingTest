@@ -6,7 +6,7 @@
     <body>
         <script>
             function solution(arr){  
-                debugger;
+                //debugger;
                 let answer;
                 let sum=[];
                 //row&col
@@ -14,19 +14,17 @@
                 for(let i=0; i<arr.length; i++) {
                     row=col=0;
                     for(let j=0; j<arr.length; j++) {
-                        row+=arr[i][j]
-                        col+=arr[j][i]
+                        row+=arr[i][j]//j고정
+                        col+=arr[j][i]//i고정
                     }
-                    sum.push(row);
-                    sum.push(col);
+                    sum.push(Math.max(row,col));
                 }
                 //cross1,cross2
                 let cross1=cross2=0;
                 for(let i=0; i<arr.length; i++) {
                     cross1+=arr[i][i];
                     cross2+=arr[i][arr.length-i-1];
-                    sum.push(cross1);
-                    sum.push(cross2);
+                    sum.push(cross1, cross2);
                 }
                 answer=Math.max(...sum);
                 return answer;
