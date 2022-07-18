@@ -7,11 +7,20 @@
         <script>
             function solution(s){
                 let answer="YES";
-                s=s.toLowerCase();
-                let len=s.length;
-                for(let i=0; i<Math.floor(len/2); i++){
-                    if(s[i]!=s[len-i-1]) return "NO";
+                //문자열을 대문자로 치환
+                //뒤부터 반대로 비교하여 다르면 NO
+                let arr=str.toUpperCase().split('');
+                for(let i=0; i<arr.length; i++) {
+                    if(arr[i]!==arr[arr.length-i-1]) answer="NO";
                 }
+                // s=s.toLowerCase();
+                //1.
+                // let len=s.length;
+                // for(let i=0; i<Math.floor(len/2); i++){
+                //     if(s[i]!=s[len-i-1]) return "NO";
+                // }
+                //2.
+                //if(s.split('').reverse().join('')!==s) return "NO";
                 return answer;
             }
             
