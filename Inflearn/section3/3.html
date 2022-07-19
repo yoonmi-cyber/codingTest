@@ -7,10 +7,10 @@
         <script>
             function solution(str){
                 let answer="";
-                for(let x of str){
-                    if(!isNaN(x)) answer+=x;
-                }  
-                return parseInt(answer);
+                for(let el of str) {
+                    if(!isNaN(el)) answer+=el;
+                }
+                return Number(answer);//parseInt()
             }
             
             let str="g0en2T0s8eSoft";
