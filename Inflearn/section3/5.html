@@ -7,14 +7,14 @@
         <script>
             function solution(s){
                 let answer="";
-                let cnt=1;
-                s=s+" ";
-                for(let i=0; i<s.length-1; i++){
+                let cnt=1;//기본으로 s[i]의 카운트
+                s=s+" ";//for-loop에서 마지막 요소를 그 뒤의 요소와 비교하기 위해 빈 문자열을 추가!
+                for(let i=0; i<s.length-1; i++) {//s끝에 빈문자열을 추가했으므로 length-1까지 확인
                     if(s[i]===s[i+1]) cnt++;
-                    else{
+                    else {
                         answer+=s[i];
                         if(cnt>1) answer+=String(cnt);
-                        cnt=1;
+                        cnt=1;//초기화
                     }
                 }
                 return answer;
