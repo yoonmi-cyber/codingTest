@@ -6,21 +6,24 @@
     <body>
         <script>
             function isPrime(num){
-                if(num===1) return false;
-                for(let i=2; i<=parseInt(Math.sqrt(num)); i++){
+                if(num===1) return false;//1은 소수가 아님
+                for(let i=2; i<=parseInt(Math.sqrt(num)); i++) {
                     if(num%i===0) return false;
                 }
                 return true;
             }
             function solution(arr){
                 let answer=[];
-                for(let x of arr){
+                for(let el of arr) {
+                    //1.while 자연수 뒤집기
                     let res=0;
-                    while(x){
-                        let t=x%10;
+                    while(el) {
+                        let t=el%10;
                         res=res*10+t;
-                        x=parseInt(x/10);
+                        el=parseInt(el/10);
                     }
+                    //2.
+                    //let res=Number(el.toString().split('').reverse().join(''));
                     if(isPrime(res)) answer.push(res);
                 }
                 return answer;

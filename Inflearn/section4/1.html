@@ -6,19 +6,22 @@
     <body>
         <script>
             function solution(n, arr){
-                let answer, max=Number.MIN_SAFE_INTEGER;
-                for(let x of arr){
-                    let sum=0, tmp=x;
-                    while(tmp){
-                        sum+=(tmp%10);
-                        tmp=Math.floor(tmp/10);
+                let answer, max=Number.MIN_SAFE_INTEGER;//아주 작은 수를 맥스로 할당
+                for(let el of arr) {
+                    //1.while
+                    let sum=0, tmp=el;//자릿수의 합이 최대인 el을 출력하기 위한 tmp!!
+                    while(tmp){//tmp가 0이 되면 멈춘다.
+                        sum+=(tmp%10);//tmp=128 sum=8
+                        tmp=Math.floor(tmp/10);//tmp=12
                     }
-                    if(sum>max){
+                    //2.
+                    //let sum=el.toString().split('').reduce((a, b)=>a+Number(b), 0);
+                    if(sum>max) {
                         max=sum;
-                        answer=x;
+                        answer=el;
                     }
-                    else if(sum===max){
-                        if(x>answer) answer=x;
+                    else if(sum===max) {
+                        if(el>answer) answer=el;
                     }
                 }
                 return answer;
