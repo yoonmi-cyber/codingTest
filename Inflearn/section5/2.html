@@ -7,17 +7,22 @@
         <script>
             function solution(arr1, arr2){
                 let answer=[];
-                arr1.sort();
-                arr2.sort();
+                //arr1.sort();//sort()는 문자열로 인식한다.
+                //console.log(arr1) 
+                arr1.sort((a,b)=>a-b);//정렬 기준을 꼭 제시할 것!
+                arr2.sort((a,b)=>a-b);
                 let p1=p2=0;
-                while(p1<arr1.length && p2<arr2.length){
-                    if(arr1[p1]==arr2[p2]){
-                        answer.push(arr1[p1++]);
+                //two pointers algorithm, O(n+m)
+                while(p1<arr1.length && p2<arr2.length) {
+                    if(arr1[p1]===arr2[p2]) {
+                        answer.push(arr1[p1++]);//p1값을 push하고 p1++한다!
                         p2++;
                     }
+                    //sort를 통해서 오름차순으로 정렬했기 때문에
+                    //작은 수를 증가시킨다. 
                     else if(arr1[p1]<arr2[p2]) p1++;
                     else p2++;
-                }              
+                }
                 return answer;
             }
             
