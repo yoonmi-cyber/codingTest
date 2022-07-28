@@ -7,6 +7,10 @@
         <script>
             function solution(m, arr){
                 let answer=0, lt=0, sum=0;
+                //for-loop을 돌면서 sum===m과 같을 때를 찾는다.
+                //sum<m이면 rt증가&sum에 더함.
+                //sum===m이면 answer증가, lt증가&sum에서 뺀다.
+                //sum>m이면 lt증가&sum에서 뺀다.
                 for(let rt=0; rt<arr.length; rt++){
                     sum+=arr[rt];
                     if(sum===m) answer++;
