@@ -7,13 +7,13 @@
         <script>
             function solution(m, arr){
                 let answer=0, sum=0, lt=0;
-                for(let rt=0; rt<arr.length; rt++){
+                for(let rt=0; rt<arr.length; rt++) {
                     sum+=arr[rt];
-                    while(sum>m){
+                    while(sum>m) {
                         sum-=arr[lt++];
                     }
-                    answer+=(rt-lt+1);
-                }               
+                    answer+=(rt-lt+1);//sum<=5인 경우마다 lt와 rt의 위치에 해당하는 요소들의 개수 구하는 식
+                }  
                 return answer;
             }
             
