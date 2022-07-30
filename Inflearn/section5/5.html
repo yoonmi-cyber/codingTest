@@ -6,14 +6,25 @@
     <body>
         <script>
             function solution(k, arr){
+                //1.sliding window algorithm
                 let answer, sum=0;
-                for(let i=0; i<k; i++) sum+=arr[i];
+                for(let i=0;i<k; i++) sum+=arr[i];//첫번째 sum을 구해놓는다.
                 answer=sum;
-                for(let i=k; i<arr.length; i++){
-                    sum+=(arr[i]-arr[i-k]);
+                for(let i=k; i<arr.length; i++) {//arr[0]부터 k개를 더해 놓았으므로 k부터 시작
+                    sum+=(arr[i]-arr[i-k]);//첫번째 sum값에서 다음 수 더하고 젤 앞에 수를 뺀다.
                     answer=Math.max(answer, sum);
-                }                    
+                }
                 return answer;
+                //2.O(n2)
+                // let answer=Number.MIN_SAFE_INTEGER; 
+                // for(let i=0; i<arr.length; i++) {
+                //     let sum=0;
+                //     for(let j=i; j<=i+k-1; j++) {
+                //         sum+=arr[j];
+                //     }
+                //     if(sum>answer) answer=sum;
+                // }                   
+                // return answer;
             }
             
             let a=[12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
