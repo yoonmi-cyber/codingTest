@@ -7,14 +7,15 @@
         <script>
             function solution(s){  
                 let answer;
-                let sH = new Map();
-                for(let x of s){
-                    if(sH.has(x)) sH.set(x, sH.get(x)+1);
-                    else sH.set(x, 1);
-                }
+                let sH = new Map();//객체생성
+                console.log(sH)
+                for(let el of s) {
+                    if(sH.has(el)) sH.set(el, sH.get(el)+1);//새로운 객체에 el(key)이 있으면, 기존값에 +1
+                    else sH.set(el, 1);//그렇지 않으면 el(key)을 만들고 1
+                } console.log(sH)
                 let max=Number.MIN_SAFE_INTEGER;
-                for(let [key, val] of sH){
-                    if(val>max){
+                for(let [key, val] of sH) {
+                    if(val>max) {
                         max=val;
                         answer=key;
                     }
