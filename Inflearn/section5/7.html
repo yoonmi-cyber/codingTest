@@ -7,14 +7,14 @@
         <script>
             function solution(str1, str2){
                 let answer="YES"; 
-                let sH = new Map();
-                for(let x of str1){
-                    if(sH.has(x)) sH.set(x, sH.get(x)+1);
-                    else sH.set(x, 1);
-                }
-                for(let x of str2){
-                    if(!sH.has(x) || sH.get(x)==0) return "NO";
-                    sH.set(x, sH.get(x)-1);
+                let sH = new Map();//hash map생성
+                for(let el of str1) {//str1의 key=>value가 담긴 map을 만든다. 
+                    if(sH.has(el)) sH.set(el, sH.get(el)+1);
+                    else sH.set(el, 1);
+                } console.log(sH)
+                for(let el of str2) {//str2를 비교
+                    if(!sH.has(el) || sH.get(el)===0) return "NO";
+                    sH.set(el, sH.get(el)-1);//el이 있으면 갯수 -1
                 }
                 return answer;
             }
