@@ -7,19 +7,23 @@
         <script>
             function solution(s){
                 let answer="YES";
-                stack=[];
-                for(let el of s){
-                    if(el==='(') stack.push(el);
-                    else{
-                        if(stack.length===0) return "NO";
-                        stack.pop();
+                let stack=[];
+                for(let el of s) {
+                    //여는괄호-닫는괄호의 쌍이 맞는지 확인하기 위해서 
+                    //el이 여는괄호이면 스택에 넣어주고
+                    //el이 닫는괄호이면 스택에 쌓인 여는괄호를 함께 없앤다.
+                    if(el==='(') stack.push(el);//여는 괄호이면 stack에 넣어준다.
+                    else {//닫는 괄호일 경우,
+                        if(stack.length===0) return "NO";//stack이 비어있다면 잘못된 괄호이다.
+                        else stack.pop();//아니면 스택에 쌓여있던 괄호하나를 지우고, 닫는 괄호에 대해서는 아무런 액션도 취하지 않는다.
                     }
-                }
-                if(stack.length>0) return "NO";  
+                }//모든 요소를 확인했을 때 스택이 비어 있다면 올바른 괄호이고, 스택에 괄호가 남아있다면 올바른 괄호가 아니다.
+                if(stack.length>0) return "NO"
                 return answer;
             }
             
-            let a="(()(()))(())";
+            let a="(()(()))(()";
+            // "(()(()))(())"
             console.log(solution(a));
         </script>
     </body>
