@@ -8,10 +8,11 @@
             function solution(s){  
                 let answer;
                 let stack=[];
-                debugger;
-                for(let el of s){
-                    if(el===')'){
-                        while(stack.pop()!=='(');
+                for(let el of s) {
+                    //여는 괄호, 알파벳의 경우 스택에 담고 싶다.
+                    //그렇지만 if(닫는괄호)를 먼저 써주면 효율적이겠다.
+                    if(el===')') {
+                        while(stack.pop()!=='(');//여는괄호를 pop하고 나면! 멈춘다.
                     }
                     else stack.push(el);
                 }
